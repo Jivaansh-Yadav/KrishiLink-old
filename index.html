@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo.png">
+
+  <!-- Primary Meta Tags -->
+  <title>KrishiLink – Smart Farming Solutions</title>
+  <meta name="title" content="KrishiLink – Smart Farming Solutions">
+  <meta name="description"
+    content="KrishiLink is your gateway to innovative farming solutions, crop management tips, and farmer resources. Join the smart agriculture revolution today!">
+  <meta name="keywords"
+    content="KrishiLink, farming, agriculture, crop management, smart farming, farmer tools, farm technology">
+  <meta name="author" content="Jivaansh Yadav">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://krishilink.wuaze.com">
+  <meta property="og:title" content="KrishiLink – Smart Farming Solutions">
+  <meta property="og:description"
+    content="KrishiLink is your gateway to innovative farming solutions, crop management tips, and farmer resources.">
+  <meta property="og:image" content="https://krishilink.wuaze.com/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://krishilink.wuaze.com">
+  <meta property="twitter:title" content="KrishiLink – Smart Farming Solutions">
+  <meta property="twitter:description"
+    content="KrishiLink is your gateway to innovative farming solutions, crop management tips, and farmer resources.">
+  <meta property="twitter:image" content="https://krishilink.wuaze.com/assets/images/logo.png">
+
+  <!-- Viewport for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="CacheControl" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <title>KrishiLink</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.cdnfonts.com/css/airstrike" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/space-mono" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header" style="background-image:url('assets/images/header.png');">
+    <div class="header-left">
+      <img src="assets/images/logo.png" alt="KrishiLink Logo" class="logo">
+      <span class="site-title">KrishiLink</span>
+    </div>
+  </header>
+
+  <!-- Background -->
+  <div class="background" style="background-image:url('assets/images/background.png');"></div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-section" id="hero">
+      <h1>KrishiLink</h1>
+      <p>Bridging Farmers and Buyers — Smarter, Faster, and Simpler.</p>
+    </section>
+
+    <!-- Auth Buttons -->
+    <div class="auth-buttons">
+      <button id="loginBtn" class="gradient-btn">Login</button>
+      <button id="registerBtn" class="gradient-btn">Register</button>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeLogin">&times;</span>
+        <h2>Login to KrishiLink</h2>
+        <form id="loginForm">
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <p id="errorMsg" class="error"></p>
+          <button type="submit" class="gradient-btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeRegister">&times;</span>
+        <h2>Create Your Account</h2>
+        <form>
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="tel" placeholder="Mobile Number" maxlength="10" pattern="[0-9]{10}" required>
+          <input type="password" placeholder="Password" required>
+          <select required>
+            <option value="">Select Role</option>
+            <option value="farmer">Farmer</option>
+            <option value="buyer">Buyer</option>
+          </select>
+          <button type="submit" class="gradient-btn">Register</button>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- Sections -->
+    <section id="whatIsKrishiLink" class="info-card">
+      <h2>What is KrishiLink</h2>
+      <p>KrishiLink connects farmers and buyers, promoting fair trade and transparent interactions.</p>
+    </section>
+
+    <section id="benefits" class="info-card">
+      <h2>Benefits</h2>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Instant connection</li>
+        <li><i class="fas fa-check-circle"></i> Transparent pricing</li>
+        <li><i class="fas fa-check-circle"></i> Simplified listings</li>
+        <li><i class="fas fa-check-circle"></i> Direct Communication</li>
+      </ul>
+    </section>
+
+    <section id="howItWorks" class="flowchart">
+      <h2>How it Works</h2>
+      <div class="flow-step">
+        <div class="circle">1</div>
+        <p>Login or Select Role</p>
+      </div>
+      <div class="flow-step">
+        <div class="circle">2</div>
+        <p>Farmers Create Listings</p>
+      </div>
+      <div class="flow-step">
+        <div class="circle">3</div>
+        <p>Buyers Send Offers</p>
+      </div>
+      <div class="flow-step">
+        <div class="circle">4</div>
+        <p>Confirm Orders</p>
+      </div>
+    </section>
+
+    <section id="about" class="info-card">
+      <h2>About</h2>
+      <p>Developed to show how digital agriculture empowers farmers with communication and fair pricing tools.</p>
+    </section>
+
+    <section id="contact" class="info-card">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:demo@krishilink.com" target="_blank"><i class="fas fa-envelope"></i> demo@krishilink.com</a></li>
+        <li><a href="tel:+919000000001" target="_blank"><i class="fas fa-phone"></i> +91 90000 00001</a></li>
+        <li><a href="https://wa.me/919000000003" target="_blank"><i class="fab fa-whatsapp"></i> +91 90000 00003</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer style="background-image:url('assets/images/footer.png');">
+    <div class="footer-content">
+      <p>&copy; 2025 KrishiLink | Developer: Jivaansh</p>
+      <p id="footer-datetime"></p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="login.js"></script>
+
+</body>
+
+</html>

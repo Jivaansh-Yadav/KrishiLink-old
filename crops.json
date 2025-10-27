@@ -1,0 +1,14 @@
+[
+  {
+    "id": "farmer1",
+    "cropName": "Wheat",
+    "quantity": "50kg",
+    "rate": "₹30/kg"
+  },
+  {
+    "id": "farmer2",
+    "cropName": "Rice",
+    "quantity": "100kg",
+    "rate": "₹40/kg"
+  }
+]

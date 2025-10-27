@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KrishiLink Admin Dashboard</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Space Mono', monospace;
+      background-color: #f9f9f9;
+      color: #222;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #004d1a;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* ===== Dashboard Cards ===== */
+    .dashboard-cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #4CAF50, #2e8b57);
+      color: #fff;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+      animation: cardPop 0.6s ease forwards;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      top: -100%;
+      left: 0;
+      transition: all 0.5s;
+    }
+
+    .card:hover::before {
+      top: 0;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes cardPop {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* ===== Modal Base ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeInBackground 0.3s;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    /* ===== Modal Content ===== */
+    .modal-content {
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+      position: relative;
+      text-align: center;
+      transform: translateY(-20px);
+      opacity: 0;
+      animation: fadeInContent 0.3s forwards;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    /* ===== Close Button ===== */
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #333;
+      transition: 0.3s;
+    }
+
+    .close-btn:hover {
+      color: #e63946;
+    }
+
+    /* ===== Table inside Modal ===== */
+    .modal-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      animation: tableFade 0.8s ease forwards;
+    }
+
+    .modal-content th,
+    .modal-content td {
+      border: 1px solid #ccc;
+      padding: 0.6rem;
+      text-align: left;
+    }
+
+    .modal-content th {
+      background: #4CAF50;
+      color: #fff;
+    }
+
+    .modal-content iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      margin-top: 1rem;
+      animation: fadeInContent 0.5s forwards;
+    }
+
+    /* ===== Animations ===== */
+    @keyframes fadeInBackground {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInContent {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes tableFade {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ===== Hero Section ===== */
+    .hero-section h1 {
+      animation: fadeInContent 1s ease forwards;
+    }
+
+    .hero-section p {
+      animation: fadeInContent 1.2s ease forwards;
+    }
+  </style>
+</head>
+
+<body style="background-image: url(../assets/images/background.png); background-size: cover; background-attachment: fixed;">
+
+  <!-- Header -->
+  <header class="header" style="background-image:url('../assets/images/header.png');">
+    <div class="header-left">
+      <img src="../assets/images/logo.png" alt="KrishiLink Logo" class="logo">
+      <span class="site-title">KrishiLink</span>
+  </header>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1>Welcome, Admin</h1>
+      <p>Prototype demo showing farmers, buyers, and MSP data statically.</p>
+    </section>
+
+    <!-- Dashboard Cards -->
+    <div class="dashboard-cards">
+      <div class="card" onclick="openModal('farmerModal')">Farmer List</div>
+      <div class="card" onclick="openModal('buyerModal')">Buyer List</div>
+      <div class="card" onclick="openModal('mspModal')">MSP List</div>
+    </div>
+
+    <!-- Farmer Modal -->
+    <div id="farmerModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('farmerModal')">&times;</span>
+        <h2>Farmers</h2>
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Crop</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+          </tr>
+          <tr>
+            <td>farmer1</td>
+            <td>Vishwajeet</td>
+            <td>vishwajeet@krishilink.in</td>
+            <td>9999000001</td>
+            <td>Wheat</td>
+            <td>50kg</td>
+            <td>₹30/kg</td>
+          </tr>
+          <tr>
+            <td>farmer2</td>
+            <td>Sakshi</td>
+            <td>sakshi@krishilink.in</td>
+            <td>9999000002</td>
+            <td>Rice</td>
+            <td>100kg</td>
+            <td>₹40/kg</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Buyer Modal -->
+    <div id="buyerModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('buyerModal')">&times;</span>
+        <h2>Buyers</h2>
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Role</th>
+          </tr>
+          <tr>
+            <td>buyer1</td>
+            <td>Disha</td>
+            <td>disha@krishilink.in</td>
+            <td>9999000003</td>
+            <td>Buyer</td>
+          </tr>
+          <tr>
+            <td>buyer2</td>
+            <td>Adwita</td>
+            <td>adwita@krishilink.in</td>
+            <td>9999000004</td>
+            <td>Buyer</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- MSP Modal -->
+    <div id="mspModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('mspModal')">&times;</span>
+        <h2>Minimum Support Price (MSP)</h2>
+        <iframe src="MSP_for-website_English-version.pdf"></iframe>
+      </div>
+    </div>
+  <!-- Footer -->
+  <footer style="background-image:url('../assets/images/footer.png');">
+    <div class="footer-content">
+      <p>&copy; 2025 KrishiLink | Developer: Jivaansh</p>
+    </div>
+  </footer>
+
+  <!-- JS for modals -->
+  <script>
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.add('show');
+    }
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('show');
+    }
+
+    // Optional: close modal on clicking outside content
+    window.addEventListener('click', function (e) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (e.target === modal) modal.classList.remove('show');
+      });
+    });
+  </script>
+  <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "admin",
+    "name": "Jivaansh",
+    "email": "admin@krishilink.in",
+    "password": "demo",
+    "role": "admin",
+    "mobile": "9999000000"
+  },
+  {
+    "id": "farmer1",
+    "name": "Vishwajeet",
+    "email": "vishwajeet@krishilink.in",
+    "password": "demo",
+    "role": "farmer",
+    "mobile": "9999000001"
+  },
+  {
+    "id": "farmer2",
+    "name": "Sakshi",
+    "email": "sakshi@krishilink.in",
+    "password": "demo",
+    "role": "farmer",
+    "mobile": "9999000002"
+  },
+  {
+    "id": "buyer1",
+    "name": "Disha",
+    "email": "disha@krishilink.in",
+    "password": "demo",
+    "role": "buyer",
+    "mobile": "9999000003"
+  },
+  {
+    "id": "buyer2",
+    "name": "Adwita",
+    "email": "adwita@krishilink.in",
+    "password": "demo",
+    "role": "buyer",
+    "mobile": "9999000004"
+  }
+]
